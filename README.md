@@ -1,36 +1,41 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Abhilash B N V S — Software Engineer
 
-## Getting Started
+An immersive, responsive portfolio for software engineering, data systems, and applied AI work. Built with Next.js App Router, TypeScript, React Three Fiber, Three.js, and Motion.
 
-First, run the development server:
+## Run locally
+
+Install dependencies and start the development server:
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Optional personal assets
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- Profile portrait: add your image at `public/images/profile.jpg`. A styled fallback is shown if it is absent.
+- Resume: add your PDF at `public/resume/Abhilash-B-N-V-S-Resume.pdf`. The download link appears only when this file is available.
 
-## Learn More
+## Quality checks
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+npm run lint
+npm run typecheck
+npm run build
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Deploy to Vercel
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Import the repository into Vercel and use the default Next.js build configuration. No environment variables or backend services are required. The project can also be built locally with `npm run build`.
 
-## Deploy on Vercel
+## Architecture
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- `app/`: App Router entry, metadata, and global styles.
+- `components/portfolio-experience.tsx`: accessible content, section navigation, and scroll journey controller.
+- `components/three/`: client-only, low-cost procedural WebGL scene and fallback visuals.
+- `data/`: structured profile, experience, project, skill, education, and navigation content.
+- `lib/motion/`: shared section navigation and normalized scroll progress utilities.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+The 3D scene is an ambient visual layer; all portfolio content remains semantic HTML and available without it. Reduced-motion preferences disable continuous scene motion and smooth scrolling.
